@@ -1,14 +1,24 @@
 class Project
+  # code goes here
+  attr_accessor  :backers,:title
+  # attr_reader :name
 
-  attr_accessor :backers, :title
-
+  # def initialize(name=nil,mood="nervous",owner=nil)
   def initialize(title)
-    @backers = []
+    # @name=name
     @title=title
-  end #initialize
+    @backers=[]
+    # @owner=owner
+    # @mood=mood
+  end
 
   def add_backer(backer)
     @backers << backer
-    backer.backed_projects << self
+    # backer.back_project(self)
+    # puts "********** #{backer.backed_projects.include?(self)}"
+    # puts "********** #{}"
+    backer.back_project(self) if !backer.backed_projects.include?(self)
   end
-end #class
+
+
+end
